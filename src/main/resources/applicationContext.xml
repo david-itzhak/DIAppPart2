@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -10,7 +11,8 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean1"
-          class="ru.alishev.springcourse.ClassicalMusic">
+          class="ru.alishev.springcourse.ClassicalMusic"
+          factory-method="getClassicalMusic">
     </bean>
     <bean id="musicBean2"
           class="ru.alishev.springcourse.RockMusic">
@@ -20,7 +22,11 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.alishev.springcourse.MusicPlayer">
+          class="ru.alishev.springcourse.MusicPlayer"
+          init-method="initMethodTest"
+          destroy-method="destroyMethodTest"
+          scope="prototype"
+    >
         <property name="musicList">
             <list>
                 <ref bean="musicBean1"/>
@@ -28,8 +34,6 @@
                 <ref bean="musicBean3"/>
             </list>
         </property>
-
-
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>

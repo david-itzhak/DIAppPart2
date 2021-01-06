@@ -11,7 +11,6 @@ public class MusicPlayer {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -19,7 +18,6 @@ public class MusicPlayer {
     public int getVolume() {
         return volume;
     }
-
     public void setVolume(int volume) {
         this.volume = volume;
     }
@@ -30,5 +28,12 @@ public class MusicPlayer {
 
     public void playMusicList() {
         musicList.forEach(m ->  System.out.println("Playing: " + m.getSong()));
+    }
+
+    private void initMethodTest(){
+        System.out.println("Init method works");
+    }
+    private void destroyMethodTest(){
+        System.out.println("Destroy method works");
     }
 }
