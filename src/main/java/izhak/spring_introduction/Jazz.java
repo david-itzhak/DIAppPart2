@@ -1,4 +1,4 @@
-package ru.alishev.springcourse;
+package izhak.spring_introduction;
 
 public class Jazz implements Music {
     @Override

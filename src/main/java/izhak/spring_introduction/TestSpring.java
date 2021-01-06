@@ -1,4 +1,4 @@
-package ru.alishev.springcourse;
+package izhak.spring_introduction;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -7,14 +7,13 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-
+        Music music = context.getBean("musicBean", Music.class);
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        MusicPlayer musicPlayer2 = context.getBean("musicPlayer", MusicPlayer.class);
 
         musicPlayer.playMusicList();
 
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
+//        System.out.println(musicPlayer.getName());
+//        System.out.println(musicPlayer.getVolume());
 
         context.close();
     }
